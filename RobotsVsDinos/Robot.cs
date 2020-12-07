@@ -12,10 +12,18 @@ namespace RobotsVsDinos
         string name;
         int health;
         int powerLevel;
-        Weapon weapon;
         int attackPower;
+        Weapon weapon;
 
         //CONSTRUCTOR (spawner)
+        public Robot(string inputName, int inputHealth, int inputPowerLevel, int inputAttackPower, Weapon inputWeapon)
+        {
+            this.name = inputName;
+            this.health = inputHealth;
+            this.powerLevel = inputPowerLevel;
+            this.weapon = inputWeapon;
+            this.attackPower = inputAttackPower;
+        }
 
         //MEMBER METHODS (what can it do)
     }
