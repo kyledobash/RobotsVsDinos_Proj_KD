@@ -9,7 +9,7 @@ namespace RobotsVsDinos
     public class Fleet
     {
         //MEMBER VARIABLES (what it has)
-        List<Robot> robotFleet;
+        public List<Robot> robotFleet;
 
         //CONSTRUCTOR (spawner)
         public Fleet()

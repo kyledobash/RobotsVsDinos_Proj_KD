@@ -9,7 +9,7 @@ namespace RobotsVsDinos
     public class Herd
     {
         //MEMBER VARIABLES (what it has)
-        List<Dinosaur> dinosaurHerd;
+        public List<Dinosaur> dinosaurHerd;
 
         //CONSTRUCTOR (spawner)
         public Herd()
