@@ -9,8 +9,16 @@ namespace RobotsVsDinos
     public class Dinosaur
     {
         //MEMBER VARIABLES (what it has)
+        string type;
+        int health;
+        int energy;
+        int attackPower;
 
         //CONSTRUCTOR (spawner)
+        public Dinosaur()
+        {
+                
+        }
 
         //MEMBER METHODS (what can it do)
     }
