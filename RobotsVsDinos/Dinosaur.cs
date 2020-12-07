@@ -9,10 +9,11 @@ namespace RobotsVsDinos
     public class Dinosaur
     {
         //MEMBER VARIABLES (what it has)
-        string type;
-        int health;
-        int energy;
-        int attackPower;
+        public string type;
+        public int health;
+        public int energy;
+        public int attackPower;
+        public bool isTurn;
 
         //CONSTRUCTOR (spawner)
         public Dinosaur(string inputType, int inputHealth, int inputEnergy, int inputAttackPower)
@@ -24,6 +25,29 @@ namespace RobotsVsDinos
         }
 
         //MEMBER METHODS (what can it do)
+        public void DinoAttack(Robot inputRobot, Dinosaur inputDinosaur)
+        {
+            Random rnd = new Random();
+            int attackChance = rnd.Next(0, 101);
 
+            if (inputDinosaur.isTurn == true && attackChance > 50)
+            {
+                inputRobot.health -= (inputDinosaur.attackPower / 2);
+
+                inputRobot.isTurn = !inputRobot.isTurn;
+                inputDinosaur.isTurn = !inputDinosaur.isTurn;
+            }
+            else if (inputDinosaur.isTurn == true && attackChance < 50)
+            {
+                inputRobot.isTurn = !inputRobot.isTurn;
+                inputDinosaur.isTurn = !inputDinosaur.isTurn;
+
+                return;
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }

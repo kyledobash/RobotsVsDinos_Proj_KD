@@ -9,11 +9,12 @@ namespace RobotsVsDinos
     public class Robot
     {
         //MEMBER VARIABLES (what it has)
-        string name;
-        int health;
-        int powerLevel;
-        int attackPower;
-        Weapon weapon;
+        public string name;
+        public int health;
+        public int powerLevel;
+        public int attackPower;
+        public Weapon weapon;
+        public bool isTurn;
 
         //CONSTRUCTOR (spawner)
         public Robot(string inputName, int inputHealth, int inputPowerLevel, int inputAttackPower, Weapon inputWeapon)
@@ -26,6 +27,27 @@ namespace RobotsVsDinos
         }
 
         //MEMBER METHODS (what can it do)
+        public void RoboAttack(Robot inputRobot, Dinosaur inputDinosaur)
+        {
+            Random rnd = new Random();
+            int attackChance = rnd.Next(0, 101);
 
+            if (inputRobot.isTurn == true && attackChance > 50)
+            {
+                inputDinosaur.health -= (inputRobot.powerLevel / 2);
+                inputRobot.isTurn = !inputRobot.isTurn;
+                inputDinosaur.isTurn = !inputDinosaur.isTurn;
+            }
+            else if (inputRobot.isTurn == true && attackChance < 50)
+            {
+                inputRobot.isTurn = !inputRobot.isTurn;
+                inputDinosaur.isTurn = !inputDinosaur.isTurn;
+                return;
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }
