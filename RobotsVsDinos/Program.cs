@@ -12,6 +12,10 @@ namespace RobotsVsDinos
         {
             // Instantiate a Battlefield object
             // call the gameFlow method
+            Battlefield currentBattlefield = new Battlefield();
+            currentBattlefield.ExecuteGameFlow();
+
+            Console.ReadLine();
         }
     }
 }

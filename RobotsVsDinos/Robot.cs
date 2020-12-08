@@ -30,17 +30,9 @@ namespace RobotsVsDinos
             Random rnd = new Random();
             int attackChance = rnd.Next(0, 101);
 
-            if (isTurn == true && attackChance > 50)
+            if (attackChance > 50)
             {
                 inputDinosaur.health -= (weapon.attackPower / 2);
-                isTurn = !isTurn;
-                inputDinosaur.isTurn = !inputDinosaur.isTurn;
-            }
-            else if (isTurn == true && attackChance < 50)
-            {
-                isTurn = !isTurn;
-                inputDinosaur.isTurn = !inputDinosaur.isTurn;
-                return;
             }
             else
             {
