@@ -12,18 +12,16 @@ namespace RobotsVsDinos
         public string name;
         public int health;
         public int powerLevel;
-        public int attackPower;
         public Weapon weapon;
         public bool isTurn;
 
         //CONSTRUCTOR (spawner)
-        public Robot(string inputName, int inputHealth, int inputPowerLevel, int inputAttackPower, Weapon inputWeapon)
+        public Robot(string inputName, int inputHealth, int inputPowerLevel, Weapon inputWeapon)
         {
             this.name = inputName;
             this.health = inputHealth;
             this.powerLevel = inputPowerLevel;
             this.weapon = inputWeapon;
-            this.attackPower = inputAttackPower;
         }
 
         //MEMBER METHODS (what can it do)
@@ -34,7 +32,7 @@ namespace RobotsVsDinos
 
             if (isTurn == true && attackChance > 50)
             {
-                inputDinosaur.health -= (powerLevel / 2);
+                inputDinosaur.health -= (weapon.attackPower / 2);
                 isTurn = !isTurn;
                 inputDinosaur.isTurn = !inputDinosaur.isTurn;
             }
