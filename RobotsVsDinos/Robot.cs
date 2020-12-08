@@ -13,7 +13,6 @@ namespace RobotsVsDinos
         public int health;
         public int powerLevel;
         public Weapon weapon;
-        public bool isTurn;
 
         //CONSTRUCTOR (spawner)
         public Robot(string inputName, int inputHealth, int inputPowerLevel, Weapon inputWeapon)

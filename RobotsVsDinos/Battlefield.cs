@@ -31,39 +31,46 @@ namespace RobotsVsDinos
             while (deadDinos < 3 && deadRobots < 3)
             {                
                 Random rnd = new Random();
-                int attackerSelect = rnd.Next(0, 2);
-                int victimSelect = rnd.Next(0, 2);
+
+                int dinoSelect = rnd.Next(0, (fightingHerd.dinosaurHerd.Count() - 1));
+                int roboSelect = rnd.Next(0, (fightingFleet.robotFleet.Count() - 1));
 
                 foreach (Robot currentRobot in fightingFleet.robotFleet)
                 {
                     if (currentRobot.health <= 0)
                     {
+                        fightingFleet.robotFleet.Remove(currentRobot);
                         deadRobots++;
+                        break;
                     }
                 }
+
                 foreach (Dinosaur currentDinosaur in fightingHerd.dinosaurHerd)
                 {
                     if (currentDinosaur.health <= 0)
                     {
+                        fightingHerd.dinosaurHerd.Remove(currentDinosaur);
                         deadDinos++;
+                        break;
                     }
                 }
 
-                fightingHerd.dinosaurHerd[attackerSelect].DinoAttack(fightingFleet.robotFleet[victimSelect]);
-                fightingFleet.robotFleet[attackerSelect].RoboAttack(fightingHerd.dinosaurHerd[victimSelect]);
+                if (deadDinos == 3)
+                {
+                    Console.WriteLine("The Robots have defeated the Dinosaurs!!");
+                    Console.ReadLine();
+                }
+                else if (deadRobots == 3)
+                {
+                    Console.WriteLine("The Dinosaurs have defeated the Robots!!");
+                    Console.ReadLine();
+                }
+
+                fightingHerd.dinosaurHerd[dinoSelect].DinoAttack(fightingFleet.robotFleet[roboSelect]);
+                fightingFleet.robotFleet[roboSelect].RoboAttack(fightingHerd.dinosaurHerd[dinoSelect]);
 
                 roundCounter++;
-            }
-            if (deadDinos == 3)
-            {
-                Console.WriteLine("The Robots have defeated the Dinosaurs!!");
-                Console.ReadLine();
-            }
-            else if(deadRobots == 3)
-            {
-                Console.WriteLine("The Dinosaurs have defeated the Robots!!");
-                Console.ReadLine();
-            }
+            }            
         }
     }
 }

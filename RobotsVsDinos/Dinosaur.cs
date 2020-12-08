@@ -13,7 +13,6 @@ namespace RobotsVsDinos
         public int health;
         public int energy;
         public int attackPower;
-        public bool isTurn;
 
         //CONSTRUCTOR (spawner)
         public Dinosaur(string inputType, int inputHealth, int inputEnergy, int inputAttackPower)
