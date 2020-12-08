@@ -10,7 +10,6 @@ namespace RobotsVsDinos
     {
         static void Main(string[] args)
         {
-
         }
     }
 }

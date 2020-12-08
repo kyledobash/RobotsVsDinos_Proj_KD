@@ -10,10 +10,12 @@ namespace RobotsVsDinos
     {
         //MEMBER VARIABLES (what it has)
         public int roundCounter;
+        public string name;
 
         //CONSTRUCTOR (spawner)
         public Battlefield()
         {
+            this.name = "battlefield";
             this.roundCounter = 0;
         }
 
@@ -45,6 +47,23 @@ namespace RobotsVsDinos
                 //end game
                 roundCounter = 0;
             }
+        }
+
+        public void executeGameFlow()
+        {
+            new Battlefield();
+            new Herd().PopulateHerd();
+            new Fleet().PopulateFleet();
+
+            for (int i = 0; i <= 10; i++)
+            {
+                Random rnd = new Random();
+                int attackerSelect = rnd.Next(0, 2);
+
+                //dinosaurHerd.DinoAttack(dinosaurHerd[attackerSelect], robotFleet[attackerSelect]);
+
+            }
+            Console.ReadLine();
         }
     }
 }
