@@ -10,6 +10,8 @@ namespace RobotsVsDinos
     {
         static void Main(string[] args)
         {
+            // Instantiate a Battlefield object
+            // call the gameFlow method
         }
     }
 }

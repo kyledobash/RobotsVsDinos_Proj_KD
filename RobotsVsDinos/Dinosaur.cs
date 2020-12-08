@@ -25,22 +25,22 @@ namespace RobotsVsDinos
         }
 
         //MEMBER METHODS (what can it do)
-        public void DinoAttack(Robot inputRobot, Dinosaur inputDinosaur)
+        public void DinoAttack(Robot inputRobot)
         {
             Random rnd = new Random();
             int attackChance = rnd.Next(0, 101);
 
-            if (inputDinosaur.isTurn == true && attackChance > 50)
+            if (isTurn == true && attackChance > 50)
             {
-                inputRobot.health -= (inputDinosaur.attackPower / 2);
+                inputRobot.health -= (attackPower / 2);
 
                 inputRobot.isTurn = !inputRobot.isTurn;
-                inputDinosaur.isTurn = !inputDinosaur.isTurn;
+                isTurn = !isTurn;
             }
-            else if (inputDinosaur.isTurn == true && attackChance < 50)
+            else if (isTurn == true && attackChance < 50)
             {
                 inputRobot.isTurn = !inputRobot.isTurn;
-                inputDinosaur.isTurn = !inputDinosaur.isTurn;
+                isTurn = !isTurn;
 
                 return;
             }

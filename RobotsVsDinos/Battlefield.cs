@@ -9,13 +9,13 @@ namespace RobotsVsDinos
     public class Battlefield
     {
         //MEMBER VARIABLES (what it has)
+        // HAS a fleet and a herd
         public int roundCounter;
-        public string name;
+        //public Herd 
 
         //CONSTRUCTOR (spawner)
         public Battlefield()
         {
-            this.name = "battlefield";
             this.roundCounter = 0;
         }
 
@@ -53,7 +53,7 @@ namespace RobotsVsDinos
         {
             new Battlefield();
             new Herd().PopulateHerd();
-            new Fleet().PopulateFleet();
+           
 
             for (int i = 0; i <= 10; i++)
             {
@@ -63,7 +63,6 @@ namespace RobotsVsDinos
                 //dinosaurHerd.DinoAttack(dinosaurHerd[attackerSelect], robotFleet[attackerSelect]);
 
             }
-            Console.ReadLine();
         }
     }
 }
