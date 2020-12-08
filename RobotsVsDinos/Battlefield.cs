@@ -11,30 +11,33 @@ namespace RobotsVsDinos
         //MEMBER VARIABLES (what it has)
         // HAS a fleet and a herd
         public int roundCounter;
-        //public Herd 
+        public Herd fightingHerd;
+        public Fleet fightingFleet;
 
         //CONSTRUCTOR (spawner)
         public Battlefield()
         {
             this.roundCounter = 0;
+            this.fightingFleet = new Fleet();
+            this.fightingHerd = new Herd();
         }
 
         //MEMBER METHODS (what can it do)
-        public void EndGame(List<Robot> robotFleet, List<Dinosaur> dinosaurHerd)
+        public void EndGame()
         {
             //iterate over both lists
             //if all members of list health is < 0, end the game.
             int deadRobots = 0;
             int deadDinos = 0;
 
-            foreach (Robot currentRobot in robotFleet)
+            foreach (Robot currentRobot in fightingFleet.robotFleet)
             {
                 if (currentRobot.health <= 0)
                 {
                     deadRobots++;
                 }
             }
-            foreach (Dinosaur currentDinosaur in dinosaurHerd)
+            foreach (Dinosaur currentDinosaur in fightingHerd.dinosaurHerd)
             {
                 if (currentDinosaur.health <= 0)
                 {
