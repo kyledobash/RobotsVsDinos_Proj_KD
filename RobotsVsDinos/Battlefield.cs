@@ -28,7 +28,8 @@ namespace RobotsVsDinos
             int deadRobots = 0;
             int deadDinos = 0;
 
-            while (deadDinos < 3 && deadRobots < 3)
+
+            while (deadDinos < 3 || deadRobots < 3)
             {                
                 Random rnd = new Random();
 
@@ -55,7 +56,12 @@ namespace RobotsVsDinos
                     }
                 }
 
-                if (deadDinos == 3)
+                if (deadDinos == 3 && deadRobots == 3)
+                {
+                    Console.WriteLine("It was a Stalemate!!");
+                    Console.ReadLine();
+                }
+                else if (deadDinos == 3)
                 {
                     Console.WriteLine("The Robots have defeated the Dinosaurs!!");
                     Console.ReadLine();
